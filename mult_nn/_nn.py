@@ -1,10 +1,29 @@
-from typing import List
+from typing import List, Callable, NamedTuple
 from abc import abstractmethod, ABC
 from functools import reduce
 
 import numpy as np
 
-from ._math import MExpression
+from ._math import MExpression, MSymbol
+
+DerivativeOperator = Callable[[MExpression, MSymbol], MExpression]
+ChainRuleOperator = Callable[[MExpression, ...], MExpression]
+
+class DerivativeRule:
+    def __init__(self, derivative_op: DerivativeOperator, chain_rule_op: ChainRuleOperator) -> None:
+        self.__derivative_op = derivative_op
+        self.__chain_rule_op = chain_rule_op
+
+    def derivative(self, f: MExpression, x: MSymbol) -> MExpression:
+        pass
+
+    def chain_rule(self, derivative_g_x: float, g_x: float, f: MExpression, x: MSymbol) -> MExpression:
+        pass
+
+    @staticmethod
+    def from_mexp_op(derivative: DerivativeOperator) -> 'DerivativeRule':
+        return DerivativeRule(derivative, )
+        pass
 
 
 class Layer(ABC):
@@ -42,3 +61,6 @@ class ActivationLayer(Layer):
 
     def forward(self, x: np.ndarray) -> np.ndarray:
         return self.__func(x=x).sympy()
+
+    def backward(self, prev: np.ndarray) -> None:
+        pass
