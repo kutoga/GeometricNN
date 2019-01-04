@@ -32,6 +32,31 @@ def test_dx_derivative_rule_derivative_should_return(f: MExpression, x0: float, 
 
     np.testing.assert_almost_equal(derivative.sympy(), expected_derivative)
 
+
+@pytest.mark.parametrize('f, x0, expected_derivative', [
+    (MExpression(x ** 2.), 1.5, np.exp(2. / 1.5)),
+    (MExpression(2. ** x * 3. ** x * np.pi), 12., 6.)
+])
+def test_ux_derivative_rule_derivative_should_return(f: MExpression, x0: float, expected_derivative: float) -> None:
+    d_rule = DerivativeRule.ux_rule()
+
+    derivative = d_rule.derivative(f, x)((x, x0))
+
+    np.testing.assert_almost_equal(derivative.sympy(), expected_derivative)
+
+
+@pytest.mark.parametrize('f, derivative_g_x, g_x, expected_result', [
+    (MExpression(2 ** x), 2., 3., 2. ** 3. * np.log(2.) * 2.),
+    (MExpression(x ** 2), 3., 4., 2. * 4. * 3.)
+])
+def test_dx_derivative_rule_chain_rule_should_return(f: MExpression, derivative_g_x: float, g_x: float, expected_result: float) -> None:
+    d_rule = DerivativeRule.dx_rule()
+
+    chain_rule_result = d_rule.chain_rule(derivative_g_x, g_x, f, x)
+
+    np.testing.assert_almost_equal(chain_rule_result, expected_result)
+
+
 @pytest.mark.parametrize('f, derivative_g_x, g_x, expected_result', [
     (MExpression(2 ** x), 2., 3., 2 ** (3. * np.log(2.))),
     (MExpression(x ** 2), 3., 4., np.exp(2. / 4.) ** (4. * np.log(3.)))
