@@ -1,6 +1,6 @@
 from typing import Callable, Tuple, List, Any, Union
 from functools import lru_cache
-from sympy import symbols, diff, exp, lambdify, Symbol, Expr, sympify
+from sympy import symbols, diff, exp, lambdify, Symbol, Expr, sqrt, sympify
 
 from ._utils import multiple_input_params
 
@@ -49,3 +49,5 @@ def dydx(y: MExpression, x: MSymbol=_x) -> MExpression:
 def uyux(y: MExpression, x: MSymbol=_x) -> MExpression:
     return y.sympy_apply(lambda expr: exp(diff(expr, x) / expr))
 
+def maximum(a: Expr, b: Expr) -> Expr:
+    return (a + b + sqrt((a - b)**2)) / 2
