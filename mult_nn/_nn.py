@@ -32,10 +32,10 @@ class LayerCollection(Layer):
         return self.__layers
 
     def forward(self, x: np.ndarray) -> np.ndarray:
-        return reduce(lambda layer, x_in: layer.forward(x_in), self.__layers, x)
+        return reduce(lambda x_in, layer: layer.forward(x_in), self.__layers, x)
 
     def backward(self, prev: np.ndarray, derivative_rule: DerivativeRule) -> np.ndarray:
-        return reduce(lambda layer, prev_in: layer.backward(prev_in, derivative_rule), reversed(self.__layers), prev)
+        return reduce(lambda prev_in, layer: layer.backward(prev_in, derivative_rule), reversed(self.__layers), prev)
 
 
 class ActivationLayer(Layer):
@@ -57,3 +57,16 @@ class ActivationLayer(Layer):
         derivative_x = derivative_rule.chain_rule(prev, x, self.__func, _x)
         self.__state['derivative_x'] = derivative_x
         return derivative_x
+
+
+class LinearLayer(Layer):
+    def __init__(self, n_inputs, n_outputs, bias=True) -> None:
+        pass
+
+    def forward(self, x: np.ndarray) -> np.ndarray:
+
+        pass
+
+    def backward(self, prev: np.ndarray, derivative_rule: DerivativeRule) -> np.ndarray:
+        pass
+

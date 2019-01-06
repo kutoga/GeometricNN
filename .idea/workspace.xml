@@ -4,14 +4,13 @@
     <bookmark url="file://$PROJECT_DIR$/README.md" />
     <bookmark url="file://$PROJECT_DIR$/test/test_math.py" line="14" />
     <bookmark url="file://$PROJECT_DIR$/test/test_derivative.py" line="20" />
+    <bookmark url="file://$PROJECT_DIR$/test/test_nn.py" line="80" mnemonic="7" />
   </component>
   <component name="ChangeListManager">
     <list default="true" id="d732df7d-5b48-460d-81d3-c88268d9bbb6" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/mult_nn/_math.py" beforeDir="false" afterPath="$PROJECT_DIR$/mult_nn/_math.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/TODO.md" beforeDir="false" afterPath="$PROJECT_DIR$/TODO.md" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/mult_nn/_nn.py" beforeDir="false" afterPath="$PROJECT_DIR$/mult_nn/_nn.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/mult_nn/_nn_ops.py" beforeDir="false" afterPath="$PROJECT_DIR$/mult_nn/_nn_ops.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/test/test_derivative.py" beforeDir="false" afterPath="$PROJECT_DIR$/test/test_derivative.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/test/test_nn.py" beforeDir="false" afterPath="$PROJECT_DIR$/test/test_nn.py" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -22,22 +21,24 @@
   </component>
   <component name="CoverageDataManager">
     <SUITE FILE_PATH="coverage/multiplicative_derivative$pytest_for_test_nn_test_forward_activation.coverage" NAME="pytest for test_nn.test_forward_activation Coverage Results" MODIFIED="1546534809403" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/test" />
-    <SUITE FILE_PATH="coverage/multiplicative_derivative$pytest_in_test.coverage" NAME="pytest in test Coverage Results" MODIFIED="1546639226419" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/test" />
+    <SUITE FILE_PATH="coverage/multiplicative_derivative$pytest_in_test.coverage" NAME="pytest in test Coverage Results" MODIFIED="1546737134565" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/test" />
+    <SUITE FILE_PATH="coverage/multiplicative_derivative$pytest_for_test_nn_test_layer_collection_activation_backward__1_.coverage" NAME="pytest for test_nn.test_layer_collection_activation_backward (1) Coverage Results" MODIFIED="1546737455703" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/test" />
     <SUITE FILE_PATH="coverage/multiplicative_derivative$pytest_for_test_derivative_test_dx_derivative_rule_derivative_should_return.coverage" NAME="pytest for test_derivative.test_dx_derivative_rule_derivative_should_return Coverage Results" MODIFIED="1546551202843" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/test" />
     <SUITE FILE_PATH="coverage/multiplicative_derivative$pytest_for_test_derivative_test_dx_derivative_rule_chain_rule_should_return.coverage" NAME="pytest for test_derivative.test_dx_derivative_rule_chain_rule_should_return Coverage Results" MODIFIED="1546616714014" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/test" />
     <SUITE FILE_PATH="coverage/multiplicative_derivative$pytest_for_test_nn_test_backward_activation.coverage" NAME="pytest for test_nn.test_backward_activation Coverage Results" MODIFIED="1546639120671" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/test" />
     <SUITE FILE_PATH="coverage/multiplicative_derivative$pytest_in_test_derivative_py.coverage" NAME="pytest in test_derivative.py Coverage Results" MODIFIED="1546618324436" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/test" />
     <SUITE FILE_PATH="coverage/multiplicative_derivative$pytest_in_test_nn_py.coverage" NAME="pytest in test_nn.py Coverage Results" MODIFIED="1546639146955" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/test" />
+    <SUITE FILE_PATH="coverage/multiplicative_derivative$pytest_for_test_nn_test_layer_collection_activation_backward.coverage" NAME="pytest for test_nn.test_layer_collection_activation_backward Coverage Results" MODIFIED="1546737363825" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/test" />
     <SUITE FILE_PATH="coverage/multiplicative_derivative$pytest_in_test_math_py.coverage" NAME="pytest in test_math.py Coverage Results" MODIFIED="1546616732266" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/test" />
     <SUITE FILE_PATH="coverage/multiplicative_derivative$pytest_for_test_derivative_test_ux_derivative_rule_chain_rule_should_return.coverage" NAME="pytest for test_derivative.test_ux_derivative_rule_chain_rule_should_return Coverage Results" MODIFIED="1546551599269" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/test" />
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/mult_nn/_math.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="307">
-              <caret line="52" column="36" selection-start-line="52" selection-start-column="36" selection-end-line="52" selection-end-column="36" />
+            <state relative-caret-position="362">
+              <caret line="28" lean-forward="true" selection-start-line="28" selection-end-line="28" />
               <folding>
                 <element signature="e#0#52#0" expanded="true" />
               </folding>
@@ -54,14 +55,23 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="false">
+      <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/test/test_nn.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="273">
-              <caret line="31" selection-start-line="31" selection-end-line="31" />
+            <state relative-caret-position="306">
+              <caret line="61" column="46" lean-forward="true" selection-start-line="61" selection-start-column="46" selection-end-line="61" selection-end-column="46" />
               <folding>
-                <element signature="e#0#13#0" expanded="true" />
+                <element signature="e#0#23#0" expanded="true" />
               </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/venv/lib/python3.6/site-packages/pluggy/hooks.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="165">
+              <caret line="283" selection-start-line="283" selection-end-line="283" />
             </state>
           </provider>
         </entry>
@@ -69,20 +79,11 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/mult_nn/_nn.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="310">
-              <caret line="52" lean-forward="true" selection-start-line="52" selection-end-line="52" />
+            <state relative-caret-position="372">
+              <caret line="66" selection-start-line="66" selection-end-line="66" />
               <folding>
                 <element signature="e#0#45#0" expanded="true" />
               </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$USER_HOME$/.PyCharm2018.3/system/remote_sources/2016560986/-2128051308/_pytest/python.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="392">
-              <caret line="165" selection-start-line="165" selection-end-line="165" />
             </state>
           </provider>
         </entry>
@@ -118,22 +119,25 @@
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$USER_HOME$/.PyCharm2018.3/system/remote_sources/2016560986/-2128051308/pluggy/hooks.py">
+        <entry file="file://$PROJECT_DIR$/mult_nn/_nn_ops.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="4777">
-              <caret line="283" selection-start-line="283" selection-end-line="283" />
+            <state>
+              <caret lean-forward="true" />
+              <folding>
+                <element signature="e#0#27#0" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/mult_nn/_nn_ops.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="329">
-              <caret line="36" lean-forward="true" selection-start-line="36" selection-end-line="36" />
-              <folding>
-                <element signature="e#0#27#0" expanded="true" />
-              </folding>
+        <entry file="file://$PROJECT_DIR$/TODO.md">
+          <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
+            <state split_layout="SPLIT">
+              <first_editor relative-caret-position="272">
+                <caret line="16" lean-forward="true" selection-start-line="16" selection-end-line="16" />
+              </first_editor>
+              <second_editor />
             </state>
           </provider>
         </entry>
@@ -158,12 +162,12 @@
         <option value="$PROJECT_DIR$/mult_nn/__init__.py" />
         <option value="$PROJECT_DIR$/mult_nn/_utils.py" />
         <option value="$PROJECT_DIR$/test/test_math.py" />
-        <option value="$PROJECT_DIR$/TODO.md" />
         <option value="$PROJECT_DIR$/mult_nn/_nn_ops.py" />
-        <option value="$PROJECT_DIR$/mult_nn/_nn.py" />
         <option value="$PROJECT_DIR$/test/test_derivative.py" />
-        <option value="$PROJECT_DIR$/test/test_nn.py" />
         <option value="$PROJECT_DIR$/mult_nn/_math.py" />
+        <option value="$PROJECT_DIR$/mult_nn/_nn.py" />
+        <option value="$PROJECT_DIR$/test/test_nn.py" />
+        <option value="$PROJECT_DIR$/TODO.md" />
       </list>
     </option>
   </component>
@@ -219,7 +223,7 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="Python tests.pytest in test">
+  <component name="RunManager" selected="Python tests.pytest for test_nn.test_layer_collection_activation_backward (1)">
     <configuration default="true" type="PythonConfigurationType" factoryName="Python">
       <module name="multiplicative_derivative" />
       <option name="INTERPRETER_OPTIONS" value="" />
@@ -258,6 +262,38 @@
       <option name="_new_targetType" value="&quot;PYTHON&quot;" />
       <method v="2" />
     </configuration>
+    <configuration name="pytest for test_nn.test_layer_collection_activation_backward (1)" type="tests" factoryName="py.test" temporary="true" nameIsGenerated="true">
+      <module name="multiplicative_derivative" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/test" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
+      <option name="_new_keywords" value="&quot;test_layer_collection_activation_backward[layers1-input1-previous1-derivative_rule1-expected_output1]&quot;" />
+      <option name="_new_additionalArguments" value="&quot;&quot;" />
+      <option name="_new_target" value="&quot;test_nn.test_layer_collection_activation_backward&quot;" />
+      <option name="_new_targetType" value="&quot;PYTHON&quot;" />
+      <method v="2" />
+    </configuration>
+    <configuration name="pytest for test_nn.test_layer_collection_activation_backward" type="tests" factoryName="py.test" temporary="true" nameIsGenerated="true">
+      <module name="multiplicative_derivative" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/test" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
+      <option name="_new_keywords" value="&quot;&quot;" />
+      <option name="_new_additionalArguments" value="&quot;&quot;" />
+      <option name="_new_target" value="&quot;test_nn.test_layer_collection_activation_backward&quot;" />
+      <option name="_new_targetType" value="&quot;PYTHON&quot;" />
+      <method v="2" />
+    </configuration>
     <configuration name="pytest in test" type="tests" factoryName="py.test" temporary="true" nameIsGenerated="true">
       <module name="multiplicative_derivative" />
       <option name="INTERPRETER_OPTIONS" value="" />
@@ -271,38 +307,6 @@
       <option name="_new_keywords" value="&quot;&quot;" />
       <option name="_new_additionalArguments" value="&quot;&quot;" />
       <option name="_new_target" value="&quot;$PROJECT_DIR$/test&quot;" />
-      <option name="_new_targetType" value="&quot;PATH&quot;" />
-      <method v="2" />
-    </configuration>
-    <configuration name="pytest in test_derivative.py" type="tests" factoryName="py.test" temporary="true" nameIsGenerated="true">
-      <module name="multiplicative_derivative" />
-      <option name="INTERPRETER_OPTIONS" value="" />
-      <option name="PARENT_ENVS" value="true" />
-      <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/test" />
-      <option name="IS_MODULE_SDK" value="true" />
-      <option name="ADD_CONTENT_ROOTS" value="true" />
-      <option name="ADD_SOURCE_ROOTS" value="true" />
-      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
-      <option name="_new_keywords" value="&quot;&quot;" />
-      <option name="_new_additionalArguments" value="&quot;&quot;" />
-      <option name="_new_target" value="&quot;$PROJECT_DIR$/test/test_derivative.py&quot;" />
-      <option name="_new_targetType" value="&quot;PATH&quot;" />
-      <method v="2" />
-    </configuration>
-    <configuration name="pytest in test_math.py" type="tests" factoryName="py.test" temporary="true" nameIsGenerated="true">
-      <module name="multiplicative_derivative" />
-      <option name="INTERPRETER_OPTIONS" value="" />
-      <option name="PARENT_ENVS" value="true" />
-      <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/test" />
-      <option name="IS_MODULE_SDK" value="true" />
-      <option name="ADD_CONTENT_ROOTS" value="true" />
-      <option name="ADD_SOURCE_ROOTS" value="true" />
-      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
-      <option name="_new_keywords" value="&quot;&quot;" />
-      <option name="_new_additionalArguments" value="&quot;&quot;" />
-      <option name="_new_target" value="&quot;$PROJECT_DIR$/test/test_math.py&quot;" />
       <option name="_new_targetType" value="&quot;PATH&quot;" />
       <method v="2" />
     </configuration>
@@ -324,11 +328,11 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="Python tests.pytest for test_nn.test_layer_collection_activation_backward (1)" />
+        <item itemvalue="Python tests.pytest for test_nn.test_layer_collection_activation_backward" />
         <item itemvalue="Python tests.pytest in test" />
         <item itemvalue="Python tests.pytest in test_nn.py" />
         <item itemvalue="Python tests.pytest for test_nn.test_backward_activation" />
-        <item itemvalue="Python tests.pytest in test_derivative.py" />
-        <item itemvalue="Python tests.pytest in test_math.py" />
       </list>
     </recent_temporary>
   </component>
@@ -345,44 +349,44 @@
       <workItem from="1546268808772" duration="4411000" />
       <workItem from="1546388657703" duration="14393000" />
       <workItem from="1546616240613" duration="34000" />
-      <workItem from="1546616299875" duration="4330000" />
+      <workItem from="1546616299875" duration="7381000" />
     </task>
     <servers />
   </component>
   <component name="TestHistory">
-    <history-entry file="pytest_in_test_nn_py - 2019.01.04 at 17h 16m 09s.xml">
-      <configuration name="pytest in test_nn.py" configurationId="tests" />
+    <history-entry file="pytest_in_test - 2019.01.05 at 18h 32m 58s.xml">
+      <configuration name="pytest in test" configurationId="tests" />
     </history-entry>
-    <history-entry file="pytest_for_test_nn_test_backward_activation - 2019.01.04 at 17h 17m 16s.xml">
-      <configuration name="pytest for test_nn.test_backward_activation" configurationId="tests" />
+    <history-entry file="pytest_in_test - 2019.01.05 at 18h 33m 30s.xml">
+      <configuration name="pytest in test" configurationId="tests" />
     </history-entry>
-    <history-entry file="pytest_for_test_nn_test_backward_activation - 2019.01.04 at 17h 17m 27s.xml">
-      <configuration name="pytest for test_nn.test_backward_activation" configurationId="tests" />
+    <history-entry file="pytest_in_test - 2019.01.05 at 18h 34m 37s.xml">
+      <configuration name="pytest in test" configurationId="tests" />
     </history-entry>
-    <history-entry file="pytest_in_test_nn_py - 2019.01.04 at 17h 17m 34s.xml">
-      <configuration name="pytest in test_nn.py" configurationId="tests" />
+    <history-entry file="pytest_in_test - 2019.01.05 at 18h 39m 54s.xml">
+      <configuration name="pytest in test" configurationId="tests" />
     </history-entry>
-    <history-entry file="pytest_in_test_nn_py - 2019.01.04 at 17h 20m 55s.xml">
-      <configuration name="pytest in test_nn.py" configurationId="tests" />
+    <history-entry file="pytest_in_test - 2019.01.05 at 18h 40m 36s.xml">
+      <configuration name="pytest in test" configurationId="tests" />
     </history-entry>
-    <history-entry file="pytest_in_test_nn_py - 2019.01.04 at 17h 22m 22s.xml">
-      <configuration name="pytest in test_nn.py" configurationId="tests" />
+    <history-entry file="pytest_in_test - 2019.01.05 at 18h 41m 24s.xml">
+      <configuration name="pytest in test" configurationId="tests" />
     </history-entry>
-    <history-entry file="pytest_for_test_nn_test_backward_activation - 2019.01.04 at 17h 23m 00s.xml">
-      <configuration name="pytest for test_nn.test_backward_activation" configurationId="tests" />
+    <history-entry file="pytest_in_test - 2019.01.05 at 18h 58m 38s.xml">
+      <configuration name="pytest in test" configurationId="tests" />
     </history-entry>
-    <history-entry file="pytest_for_test_nn_test_backward_activation - 2019.01.04 at 22h 48m 24s.xml">
-      <configuration name="pytest for test_nn.test_backward_activation" configurationId="tests" />
+    <history-entry file="pytest_in_test - 2019.01.06 at 02h 12m 25s.xml">
+      <configuration name="pytest in test" configurationId="tests" />
     </history-entry>
-    <history-entry file="pytest_for_test_nn_test_backward_activation - 2019.01.04 at 22h 49m 23s.xml">
-      <configuration name="pytest for test_nn.test_backward_activation" configurationId="tests" />
+    <history-entry file="pytest_for_test_nn_test_layer_collection_activation_backward - 2019.01.06 at 02h 12m 42s.xml">
+      <configuration name="pytest for test_nn.test_layer_collection_activation_backward" configurationId="tests" />
     </history-entry>
-    <history-entry file="pytest_for_test_nn_test_backward_activation - 2019.01.04 at 22h 52m 18s.xml">
-      <configuration name="pytest for test_nn.test_backward_activation" configurationId="tests" />
+    <history-entry file="pytest_for_test_nn_test_layer_collection_activation_backward - 2019.01.06 at 02h 14m 12s.xml">
+      <configuration name="pytest for test_nn.test_layer_collection_activation_backward" configurationId="tests" />
     </history-entry>
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="23168000" />
+    <option name="totallyTimeSpent" value="26219000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="0" width="1536" height="864" extended-state="6" />
@@ -393,8 +397,8 @@
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" />
-      <window_info anchor="bottom" id="Run" order="2" weight="0.63751584" />
-      <window_info anchor="bottom" id="Debug" order="3" visible="true" weight="0.39923954" />
+      <window_info anchor="bottom" id="Run" order="2" visible="true" weight="0.33840305" />
+      <window_info anchor="bottom" id="Debug" order="3" weight="0.39923954" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
       <window_info anchor="bottom" id="TODO" order="6" />
@@ -536,16 +540,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/TODO.md">
-      <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
-        <state split_layout="SPLIT">
-          <first_editor relative-caret-position="187">
-            <caret line="11" lean-forward="true" selection-start-line="11" selection-end-line="11" />
-          </first_editor>
-          <second_editor />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/mult_nn/_utils.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="136">
@@ -564,16 +558,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="4777">
           <caret line="283" selection-start-line="283" selection-end-line="283" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/test/test_math.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="255">
-          <caret line="19" column="1" selection-start-line="19" selection-start-column="1" selection-end-line="19" selection-end-column="1" />
-          <folding>
-            <element signature="e#0#23#0" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -605,42 +589,69 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/test/test_nn.py">
+    <entry file="file://$PROJECT_DIR$/mult_nn/_math.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="273">
-          <caret line="31" selection-start-line="31" selection-end-line="31" />
+        <state relative-caret-position="362">
+          <caret line="28" lean-forward="true" selection-start-line="28" selection-end-line="28" />
           <folding>
-            <element signature="e#0#13#0" expanded="true" />
+            <element signature="e#0#52#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/test/test_math.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="255">
+          <caret line="19" column="1" selection-start-line="19" selection-start-column="1" selection-end-line="19" selection-end-column="1" />
+          <folding>
+            <element signature="e#0#23#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/mult_nn/_nn.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="310">
-          <caret line="52" lean-forward="true" selection-start-line="52" selection-end-line="52" />
+        <state relative-caret-position="372">
+          <caret line="66" selection-start-line="66" selection-end-line="66" />
           <folding>
             <element signature="e#0#45#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/venv/lib/python3.6/site-packages/pluggy/hooks.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="165">
+          <caret line="283" selection-start-line="283" selection-end-line="283" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/mult_nn/_nn_ops.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="329">
-          <caret line="36" lean-forward="true" selection-start-line="36" selection-end-line="36" />
+        <state>
+          <caret lean-forward="true" />
           <folding>
             <element signature="e#0#27#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/mult_nn/_math.py">
+    <entry file="file://$PROJECT_DIR$/TODO.md">
+      <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
+        <state split_layout="SPLIT">
+          <first_editor relative-caret-position="272">
+            <caret line="16" lean-forward="true" selection-start-line="16" selection-end-line="16" />
+          </first_editor>
+          <second_editor />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/test/test_nn.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="307">
-          <caret line="52" column="36" selection-start-line="52" selection-start-column="36" selection-end-line="52" selection-end-column="36" />
+        <state relative-caret-position="306">
+          <caret line="61" column="46" lean-forward="true" selection-start-line="61" selection-start-column="46" selection-end-line="61" selection-end-column="46" />
           <folding>
-            <element signature="e#0#52#0" expanded="true" />
+            <element signature="e#0#23#0" expanded="true" />
           </folding>
         </state>
       </provider>

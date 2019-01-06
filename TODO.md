@@ -9,3 +9,8 @@ Beispiele:
 - Alles soll anhand eines XOR-Netzwerks gezeigt werden
 - Die zweite Angabe, nämlich dass man Funktionen wie $\prod x_i^{w_i}$ trivial ableiten kann, indem man die genannte Identität nutzt, soll analytisch gezeigt werden und von Hand nachgerechnet werden.
   - Das Vereinfacht die Ableitung von multiplikativen Layern enorm und macht diese so viel nützlicher
+
+
+Code:
+- Derivative Rule -> static properties machen (mit lazy load laden)
+-> allgemein mehr lazy load
