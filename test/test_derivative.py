@@ -67,3 +67,17 @@ def test_ux_derivative_rule_chain_rule_should_return(f: MExpression, derivative_
     chain_rule_result = d_rule.chain_rule(derivative_g_x, g_x, f, x)
 
     np.testing.assert_almost_equal(chain_rule_result, expected_result)
+
+
+def test_dx_rule_should_be_single_instance() -> None:
+    r0 = DerivativeRule.dx_rule()
+    r1 = DerivativeRule.dx_rule()
+
+    assert r0 is r1
+
+
+def test_ux_rule_should_be_single_instance() -> None:
+    r0 = DerivativeRule.ux_rule()
+    r1 = DerivativeRule.ux_rule()
+
+    assert r0 is r1

@@ -1,4 +1,4 @@
-from typing import List, Dict
+from typing import List, Dict, Optional, Callable
 from abc import abstractmethod, ABC
 from functools import reduce
 
@@ -58,14 +58,37 @@ class ActivationLayer(Layer):
         self.__state['derivative_x'] = derivative_x
         return derivative_x
 
+def generate_exp_weight(shape: Optional[List[int]]) -> np.ndarray:
+    return np.random.normal(size=shape)
+
+WeightsGenerator = Callable[[Optional[List[int]]], np.ndarray]
 
 class LinearLayer(Layer):
-    def __init__(self, n_inputs, n_outputs, bias=True) -> None:
-        pass
+    def __init__(self, n_inputs: int, n_outputs: int, bias=True,
+                 weights_generator: WeightsGenerator=np.random.normal,
+                 bias_generator: WeightsGenerator=np.random.normal) -> None:
+        self.__n_inputs = n_inputs
+        self.__n_outputs = n_outputs
+        self.__weights = weights_generator([self.__n_inputs, self.__n_outputs])
+        self.__bias = bias_generator([self.__n_outputs]) if bias else None
+        self.__state = {}
 
     def forward(self, x: np.ndarray) -> np.ndarray:
-
-        pass
+        assert len(x.shape) <= 2
+        assert x.shape[-1] == self.__n_inputs
+        if len(x.shape) == 1:
+            y = x * self.__weights
+            if self.__bias is not None:
+                y += self.__bias
+        elif len(x.shape) == 2:
+            y = np.dot(x, self.__weights)
+            if self.__bias is not None:
+                y += self.__bias
+        else:
+            raise RuntimeError
+        self.__state['x'] = x
+        self.__state['y'] = y
+        return y
 
     def backward(self, prev: np.ndarray, derivative_rule: DerivativeRule) -> np.ndarray:
         pass
