@@ -6,6 +6,7 @@ from sympy import exp
 
 from mult_nn._math import MExpression, sym, maximum
 from mult_nn._nn_ops import DerivativeRule
+from mult_nn._nn_update import UpdateRule, gradient_descent, mul_gradient_descent
 from mult_nn._nn import Layer, ActivationLayer, WeightsGenerator, LinearLayer, LayerCollection
 
 x = sym('x')
@@ -75,7 +76,7 @@ def test_layer_collection_activation_backward(layers: List[Layer], input: np.nda
      ((lambda weights_gen, bias_gen: LinearLayer(3, 2, True, weights_gen, bias_gen)),
       np.array([[1., 3.], [2., 4.], [-1., -2.]]), np.array([5., 6.]),
       np.array([[2., 3., -1.]]), np.array([[14., 26.]])),
-    ((lambda weights_gen, bias_genn: LinearLayer(2, 1, True, weights_gen, bias_genn)),
+    ((lambda weights_gen, bias_gen: LinearLayer(2, 1, True, weights_gen, bias_gen)),
      np.array([[1.], [2.]]), np.array([-1.]),
      np.array([[4., 5.], [2., 3.]]), np.array([[13.], [7.]]))
 ])
@@ -86,3 +87,47 @@ def test_linear_activation(layer_builder: Callable[[WeightsGenerator, WeightsGen
     output = layer.forward(input)
 
     np.testing.assert_almost_equal(output, expected_output)
+
+@pytest.mark.parametrize('update_rule, weights, gradient, expected_updated_weights', [
+    (gradient_descent(), np.array([1., 2., 3.]), np.array([2., 1., -2.]), np.array([-1., 1., 5.])),
+    (mul_gradient_descent(), np.array([1., 2., 3.]), np.array([0.5, 0.1, 5.]), np.array([2., 20., 0.6]))
+])
+def test_update_rule_should_update_weights(update_rule: UpdateRule, weights: np.ndarray, gradient: np.ndarray,
+                     expected_updated_weights: np.ndarray) -> None:
+    updated_weights = update_rule.update(weights, gradient)
+
+    np.testing.assert_almost_equal(updated_weights, expected_updated_weights)
+
+@pytest.mark.parametrize('weights', [
+    np.array([1., 2., -1.]),
+    np.array([0., 1., 3.])
+])
+def test_mul_gradient_descent_raises_on_non_positive_weights(weights: np.ndarray) -> None:
+    update_rule = mul_gradient_descent()
+    dummy_gradient = np.ones_like(weights)
+
+    with pytest.raises(ValueError):
+        update_rule.update(weights, dummy_gradient)
+
+@pytest.mark.parametrize('gradient', [
+    np.array([3., -2., 0.5]),
+    np.array([1., 0., 10.])
+])
+def test_mul_gradient_descent_raises_on_non_positive_gradient(gradient: np.ndarray) -> None:
+    update_rule = mul_gradient_descent()
+    dummy_weights = np.ones_like(gradient)
+
+    with pytest.raises(ValueError):
+        update_rule.update(dummy_weights, gradient)
+#
+# def test_linear_activation_backprop(layer_builder: Callable[[WeightsGenerator, WeightsGenerator], LinearLayer],
+#                                     weights: np.ndarray, bias: np.ndarray, input: np.ndarray,
+#                                     previous: np.ndarray, derivative_rule: DerivativeRule,
+#                                     expected_output: np.ndarray, exptected_weights_gradient: np.ndarray,
+#                                     expected_bias_gradient: np.ndarray) -> None:
+#     layer = layer_builder(lambda _: weights, lambda _: bias)
+#     layer.forward(input)
+#     backward_output = layer.backward(previous, derivative_rule)
+#     layer.update_weights(update_rule=lambda gradient, weights: weights - gradient)
+#
+#     assert backward_output == expected_output
