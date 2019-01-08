@@ -14,3 +14,4 @@ Beispiele:
 Code:
 - Derivative Rule -> static properties machen (mit lazy load laden)
 -> allgemein mehr lazy load
+- use https://github.com/ssanderson/interface
