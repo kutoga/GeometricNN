@@ -6,6 +6,7 @@ import numpy as np
 
 from ._math import MExpression, MSymbol, sym
 from ._nn_ops import DerivativeRule
+from ._nn_update import UpdateRule
 
 _x = sym('x')
 
@@ -19,6 +20,9 @@ class Layer(ABC):
     def backward(self, prev: np.ndarray, derivative_rule: DerivativeRule) -> np.ndarray:
         raise NotImplementedError
 
+    @abstractmethod
+    def update_weights(self, update_rule: UpdateRule) -> None:
+        raise NotImplementedError
 
 class LayerCollection(Layer):
     def __init__(self, *layers: Layer) -> None:
@@ -36,6 +40,10 @@ class LayerCollection(Layer):
 
     def backward(self, prev: np.ndarray, derivative_rule: DerivativeRule) -> np.ndarray:
         return reduce(lambda prev_in, layer: layer.backward(prev_in, derivative_rule), reversed(self.__layers), prev)
+
+    def update_weights(self, update_rule: UpdateRule):
+        for layer in self.__layers:
+            layer.update_weights(update_rule)
 
 
 class ActivationLayer(Layer):
@@ -58,10 +66,15 @@ class ActivationLayer(Layer):
         self.__state['derivative_x'] = derivative_x
         return derivative_x
 
+    def update_weights(self, update_rule: UpdateRule):
+        pass
+
+
 def generate_exp_weight(shape: Optional[List[int]]) -> np.ndarray:
     return np.random.normal(size=shape)
 
 WeightsGenerator = Callable[[Optional[List[int]]], np.ndarray]
+
 
 class LinearLayer(Layer):
     def __init__(self, n_inputs: int, n_outputs: int, bias=True,
@@ -70,7 +83,10 @@ class LinearLayer(Layer):
         self.__n_inputs = n_inputs
         self.__n_outputs = n_outputs
         self.__weights = weights_generator([self.__n_inputs, self.__n_outputs])
+        assert self.__weights.shape == (self.__n_inputs, self.__n_outputs)
         self.__bias = bias_generator([self.__n_outputs]) if bias else None
+        if bias is not None:
+            assert self.__bias.shape == (self.__n_outputs,)
         self.__state = {}
 
     def forward(self, x: np.ndarray) -> np.ndarray:
@@ -91,5 +107,7 @@ class LinearLayer(Layer):
         return y
 
     def backward(self, prev: np.ndarray, derivative_rule: DerivativeRule) -> np.ndarray:
-        pass
+        raise NotImplementedError
 
+    def update_weights(self, update_rule: UpdateRule):
+        raise NotImplementedError

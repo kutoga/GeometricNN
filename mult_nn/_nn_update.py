@@ -13,11 +13,6 @@ class GradientDescent(UpdateRule):
     def update(self, weights: np.ndarray, gradient: np.ndarray) -> np.ndarray:
         return weights - gradient
 
-_gradient_descent = GradientDescent()
-
-def gradient_descent() -> GradientDescent:
-    return _gradient_descent
-
 
 class MulGradientDescent(UpdateRule):
     def update(self, weights: np.ndarray, gradient: np.ndarray) -> np.ndarray:
@@ -25,7 +20,20 @@ class MulGradientDescent(UpdateRule):
             raise ValueError
         return weights / gradient
 
-_mul_gradient_descent = MulGradientDescent()
+class Mul2AddGradientDescent(UpdateRule):
+    def __init__(self):
+        self.__gradient_descent = GradientDescent()
+        self.__y = None
 
-def mul_gradient_descent() -> MulGradientDescent:
-    return _mul_gradient_descent
+    def update_y(self, y: float) -> None:
+        self.__y = y
+
+    def update(self, weights: np.ndarray, gradient: np.ndarray) -> np.ndarray:
+        if np.sum(gradient <= 0.) > 0:
+            raise ValueError
+        if self.__y is None:
+            raise ValueError('y is not defined')
+        additive_gradient = self.__y * np.log(gradient)
+        return self.__gradient_descent.update(weights, additive_gradient)
+
+
