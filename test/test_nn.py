@@ -73,11 +73,11 @@ def test_layer_collection_activation_backward(layers: List[Layer], input: np.nda
     np.testing.assert_almost_equal(backward_output, expected_output)
 
 @pytest.mark.parametrize('layer_builder, weights, bias, input, expected_output', [
-     ((lambda weights_gen, bias_gen: LinearLayer(3, 2, True, weights_gen, bias_gen)),
-      np.array([[1., 3.], [2., 4.], [-1., -2.]]), np.array([5., 6.]),
-      np.array([[2., 3., -1.]]), np.array([[14., 26.]])),
+    ((lambda weights_gen, bias_gen: LinearLayer(3, 2, True, weights_gen, bias_gen)),
+     np.array([[1., 2., -1.], [3., 4., -2]]), np.array([5., 6.]),
+     np.array([[2., 3., -1.]]), np.array([[14., 26.]])),
     ((lambda weights_gen, bias_gen: LinearLayer(2, 1, True, weights_gen, bias_gen)),
-     np.array([[1.], [2.]]), np.array([-1.]),
+     np.array([[1., 2.]]), np.array([-1.]),
      np.array([[4., 5.], [2., 3.]]), np.array([[13.], [7.]]))
 ])
 def test_linear_activation(layer_builder: Callable[[WeightsGenerator, WeightsGenerator], LinearLayer],
@@ -138,16 +138,40 @@ def test_mul_gradient_descent_raises_on_non_positive_gradient(update_rule: Updat
 #def test_equivalence_of_gradient_descent_and_mul_gradient_descent() -> None:
 #    layers = LayerCollection()
 
-@pytest.mark.parametrize('weights, bias, input, previous, expected_output', [
-    (np.array([[1., -1., 2.]]), np.array([3.]))
+@pytest.mark.parametrize('bias', [
+    np.array([1.]), np.array([-4.]), np.array([0.]), None
 ])
-def test_linear_activation_backprop(weights: np.ndarray, bias: np.ndarray, input: np.ndarray,
+@pytest.mark.parametrize('weights, input, previous, expected_output', [
+    (np.array([[1., -1., 2.]]), np.array([2., -1., 3.]), np.array([1.]), np.array([1., -1., 2.])),
+    (np.array([[0., -3., 22.]]), np.array([12., -1111., -13.]), np.array([-1.]), np.array([0., 3., -22.])),
+])
+def test_linear_activation_backprop_with_single_output(weights: np.ndarray, bias: np.ndarray, input: np.ndarray,
                                     previous: np.ndarray, expected_output: np.ndarray) -> None:
     derivative_rule = DerivativeRule.dx_rule()
-    update_rule = GradientDescent()
-    layer = LinearLayer(weights.shape[1], weights.shape[0], lambda _: weights, lambda _: bias)
+    layer = LinearLayer(weights.shape[1], weights.shape[0], weights_generator=lambda _: weights, bias_generator=lambda _: bias)
     layer.forward(input)
+
     backward_output = layer.backward(previous, derivative_rule)
 
-    layer.update_weights(update_rule)
-    assert backward_output == expected_output
+    np.testing.assert_almost_equal(backward_output, expected_output)
+
+@pytest.mark.parametrize('weights, bias, input, previous, expected_output', [
+    (np.array([[2., 3., -1.], [0., -0.5, 1.]]), np.array([1., 2.]), np.array([1., 2., -1.]),
+     np.array([1., 1.]), np.array([2., 2.5, 0.])),
+    (np.array([[2., 3., -1.], [0., -0.5, 1.]]), np.array([1., 2.]), np.array([1., 2., -1.]),
+     np.array([1., 2.]), np.array([2., 2., 1.]))
+])
+def test_linear_activation_backprop_with_multiple_outputs(weights: np.ndarray, bias: np.ndarray, input: np.ndarray,
+                                                          previous: np.ndarray, expected_output: np.ndarray) -> None:
+    derivative_rule = DerivativeRule.dx_rule()
+    layer = LinearLayer(weights.shape[1], weights.shape[0], weights_generator=lambda _: weights, bias_generator=lambda _: bias)
+    layer.forward(input)
+
+    backward_output = layer.backward(previous, derivative_rule)
+
+    np.testing.assert_almost_equal(backward_output, expected_output)
+
+def test_linear_activation_backprop_weights(weights: np.ndarray, bias: np.ndarray, input: np.ndarray,
+                                            previous: np.ndarray, expected_weights_gradient: np.ndarray,
+                                            expected_bias_gradient: np.ndarray) -> None:
+    assert False

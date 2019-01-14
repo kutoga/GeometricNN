@@ -83,9 +83,9 @@ class LinearLayer(Layer):
         self.__n_inputs = n_inputs
         self.__n_outputs = n_outputs
         self.__weights = weights_generator([self.__n_inputs, self.__n_outputs])
-        assert self.__weights.shape == (self.__n_inputs, self.__n_outputs)
+        assert self.__weights.shape == (self.__n_outputs, self.__n_inputs)
         self.__bias = bias_generator([self.__n_outputs]) if bias else None
-        if bias is not None:
+        if self.__bias is not None:
             assert self.__bias.shape == (self.__n_outputs,)
         self.__state = {}
 
@@ -93,11 +93,9 @@ class LinearLayer(Layer):
         assert len(x.shape) <= 2
         assert x.shape[-1] == self.__n_inputs
         if len(x.shape) == 1:
-            y = x * self.__weights
-            if self.__bias is not None:
-                y += self.__bias
-        elif len(x.shape) == 2:
-            y = np.dot(x, self.__weights)
+            x = np.array([x], dtype=x.dtype)
+        if len(x.shape) == 2:
+            y = np.dot(x, np.transpose(self.__weights))
             if self.__bias is not None:
                 y += self.__bias
         else:
@@ -107,7 +105,14 @@ class LinearLayer(Layer):
         return y
 
     def backward(self, prev: np.ndarray, derivative_rule: DerivativeRule) -> np.ndarray:
-        raise NotImplementedError
+        if derivative_rule is not DerivativeRule.dx_rule():
+            raise ValueError('The linear layer currently only supports dydx rule.')
+        self.__state['derivative_x'] = np.dot(prev, self.__weights)
+        self.__state['derivative_w'] = np.dot(np.expand_dims(prev, -1), np.expand_dims(self.__state['x'], 0))
+        self.__state['derivative_b'] = prev
+        return self.__state['derivative_x']
 
     def update_weights(self, update_rule: UpdateRule):
-        raise NotImplementedError
+        self.__weights = update_rule.update(self.__weights, self.__state['derivative_w'])
+        if self.__bias is not None:
+            self.__bias = update_rule.update(self.__bias, self.__state['derivative_b'])
