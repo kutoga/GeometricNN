@@ -89,6 +89,14 @@ class LinearLayer(Layer):
             assert self.__bias.shape == (self.__n_outputs,)
         self.__state = {}
 
+    @property
+    def weights(self) -> np.ndarray:
+        return self.__weights
+
+    @property
+    def bias(self) -> Optional[np.ndarray]:
+        return self.__bias
+
     def forward(self, x: np.ndarray) -> np.ndarray:
         assert len(x.shape) <= 2
         assert x.shape[-1] == self.__n_inputs
@@ -108,7 +116,7 @@ class LinearLayer(Layer):
         if derivative_rule is not DerivativeRule.dx_rule():
             raise ValueError('The linear layer currently only supports dydx rule.')
         self.__state['derivative_x'] = np.dot(prev, self.__weights)
-        self.__state['derivative_w'] = np.dot(np.expand_dims(prev, -1), np.expand_dims(self.__state['x'], 0))
+        self.__state['derivative_w'] = np.dot(np.expand_dims(prev, -1), np.expand_dims(self.__state['x'], 0))[:, 0, :]
         self.__state['derivative_b'] = prev
         return self.__state['derivative_x']
 
