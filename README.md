@@ -33,3 +33,28 @@ $\prod\limits_a^b f(x)^{\mathrm{d}x}=\exp\left(\int\limits_a^b \log\left(f(x)\ri
 We can even remove the limits:
 
 $\prod\limits f(x)^{\mathrm{d}x}=\exp\left(\int\limits \log\left(f(x)\right)\right)$
+
+This "new" integral-like operator has some interesting properties, probably the most important are:
+
+$\prod\limits \left(c^{f(x)}\right)^{\mathrm{d}x}=c^{\int\limits f(x)\mathrm{d}x}$
+
+$\prod\limits \left(g(x)h(x)\right)^{\mathrm{d}x}=\left(\prod\limits g(x)^{\mathrm{d}x}\right)\left(\prod\limits h(x)^{\mathrm{d}x}\right)$
+
+One might think about to invert this operator, which is actually quite easy. We denote the resulting expression as $f^{*}(x)$:
+
+$f^{*}(x)=\exp\left(\frac{f'(x)}{f(x)}\right)$
+
+This operator is also multiplicative and has another interesting property: It removes any constants from the input function:
+
+$f(x)=g(x)h(x)\Rightarrow f^{*}(x)=g^{*}(x)h^{*}(x)$
+
+$f(x)=c g(x), c\neq 0 \Rightarrow f^{*}(x)=g^{*}(x)$
+
+As it can be seen easily, this operator cannot handle functions with zeros: The operator is undefined for any position which results in a zero value. As it can be done for
+the "normal" derivative, we can derive the chain-rule and many other simple derivative rules for this operator. One might find the following derivative rules:
+
+$f(x)=c^{g(x)}, c>0 \Rightarrow f^{*}(x)=c^{f'(x)}$
+
+TODO: rules
+
+
