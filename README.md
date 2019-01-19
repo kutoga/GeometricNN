@@ -6,10 +6,10 @@ Classical neural networks are based on [classical calculus](https://en.wikipedia
 
 We mainly focus on derivatives: Classical calculus derivatives are additive:
 
-![mathematicla expression](http://latex.codecogs.com/png.download?%5Cinline%20%5Cdpi%7B120%7D%20%5Clarge%20f%28x%29%3Dg%28x%29%2Bh%28x%29%5CRightarrow%20f%27%28x%29%3Dg%27%28x%29%2Bh%27%28x%29)
+![mathematical expression](doc/img/6675f4c05945b4216da30a575c928b06.svg)
 
 This property is very helpful to differentiate linear functions like:
-![mathematicla expression](http://latex.codecogs.com/png.download?%5Cinline%20%5Cdpi%7B120%7D%20%5Clarge%20f%28x_0%2C%20x_1%2C%20x_2%29%3Da%20x_0%20%2B%20b%20x_1%20%2B%20c%20x_2%20%2B%20d)
+![mathematical expression](doc/img/b348b4a6e76f3ced06eae2ec8c4c3496.svg)
 
 One can use different well-known optimization methods which are based on these derivatives.
 
@@ -17,43 +17,43 @@ One can use different well-known optimization methods which are based on these d
 
 What even is this? [Wikipedia](https://en.wikipedia.org/wiki/List_of_derivatives_and_integrals_in_alternative_calculi) might help you, but if you read the next few lines, it might be even easier for you, to follow my idea.
 
-You probably already know the intergral operator: ![mathematicla expression](http://latex.codecogs.com/png.download?%5Cinline%20%5Cdpi%7B120%7D%20%5Clarge%20%5Cint%5Climits_a%5Eb%20f%28x%29%20%5Cmathrm%7Bd%7Dx). You probably know that this is somehow a continuous version of ![mathematicla expression](http://latex.codecogs.com/png.download?%5Cinline%20%5Cdpi%7B120%7D%20%5Clarge%20%5Csum%5Climits_a%5Eb%20f%28x%29). These two operators are closely related. There is also a multiplication-operator ![mathematicla expression](http://latex.codecogs.com/png.download?%5Cinline%20%5Cdpi%7B120%7D%20%5Clarge%20%5Cprod%5Climits_a%5Eb%20f%28x%29) which computes a product over a discrete set of numbers. But, is there also a continous version of this operator? Actually, it is not that hard to derive a continuous version:
+You probably already know the intergral operator: ![mathematical expression](doc/img/277fc11f85f539e0faaa5ec22a5e9489.svg). You probably know that this is somehow a continuous version of ![mathematical expression](doc/img/8c14b498ee4985136badc3dfa030932d.svg). These two operators are closely related. There is also a multiplication-operator ![mathematical expression](doc/img/0d76a5dcfaf65104c0fdd46679dfe235.svg) which computes a product over a discrete set of numbers. But, is there also a continous version of this operator? Actually, it is not that hard to derive a continuous version:
 
-![mathematicla expression](http://latex.codecogs.com/png.download?%5Cinline%20%5Cdpi%7B120%7D%20%5Clarge%20%5Cprod%5Climits_a%5Eb%20f%28x%29%3D%5Cexp%5Cleft%28%5Clog%5Cleft%28%5Cprod%5Climits_a%5Eb%20f%28x%29%5Cright%29%5Cright%29)
-![mathematicla expression](http://latex.codecogs.com/png.download?%5Cinline%20%5Cdpi%7B120%7D%20%5Clarge%20%5Cprod%5Climits_a%5Eb%20f%28x%29%3D%5Cexp%5Cleft%28%5Csum%5Climits_a%5Eb%20%5Clog%5Cleft%28f%28x%29%5Cright%29%5Cright%29)
+![mathematical expression](doc/img/2de26b85a1cf69d4f79e3d5d3be909fe.svg)
+![mathematical expression](doc/img/5a0cf5cf56d5a1ba05a57d3e5e043e4b.svg)
 
-Now, we can replace the ![mathematicla expression](http://latex.codecogs.com/png.download?%5Cinline%20%5Cdpi%7B120%7D%20%5Clarge%20%5Csum) by the integral operator. This results in:
+Now, we can replace the ![mathematical expression](doc/img/277207eeef2281959d3187e0bb79d2c1.svg) by the integral operator. This results in:
 
-![mathematicla expression](http://latex.codecogs.com/png.download?%5Cinline%20%5Cdpi%7B120%7D%20%5Clarge%20%5Cexp%5Cleft%28%5Cint%5Climits_a%5Eb%20%5Clog%5Cleft%28f%28x%29%5Cright%29%5Cright%29)
+![mathematical expression](doc/img/7da40b1144ddf92b4154e07dd664c10f.svg)
 
 Cool, we have a continuous product operator. There is a well-known syntax for this operator (which I actually do not like too much, but it is ok):
 
-![mathematicla expression](http://latex.codecogs.com/png.download?%5Cinline%20%5Cdpi%7B120%7D%20%5Clarge%20%5Cprod%5Climits_a%5Eb%20f%28x%29%5E%7B%5Cmathrm%7Bd%7Dx%7D%3D%5Cexp%5Cleft%28%5Cint%5Climits_a%5Eb%20%5Clog%5Cleft%28f%28x%29%5Cright%29%5Cright%29)
+![mathematical expression](doc/img/8873d9147a8547acefba4d7add80e0ad.svg)
 
 We can even remove the limits:
 
-![mathematicla expression](http://latex.codecogs.com/png.download?%5Cinline%20%5Cdpi%7B120%7D%20%5Clarge%20%5Cprod%5Climits%20f%28x%29%5E%7B%5Cmathrm%7Bd%7Dx%7D%3D%5Cexp%5Cleft%28%5Cint%5Climits%20%5Clog%5Cleft%28f%28x%29%5Cright%29%5Cright%29)
+![mathematical expression](doc/img/b76ad5c3e62414e73d0af733687bcbda.svg)
 
 This "new" integral-like operator has some interesting properties, probably the most important are:
 
-![mathematicla expression](http://latex.codecogs.com/png.download?%5Cinline%20%5Cdpi%7B120%7D%20%5Clarge%20%5Cprod%5Climits%20%5Cleft%28c%5E%7Bf%28x%29%7D%5Cright%29%5E%7B%5Cmathrm%7Bd%7Dx%7D%3Dc%5E%7B%5Cint%5Climits%20f%28x%29%5Cmathrm%7Bd%7Dx%7D)
+![mathematical expression](doc/img/425a193a73e548ef684dacf7b0939279.svg)
 
-![mathematicla expression](http://latex.codecogs.com/png.download?%5Cinline%20%5Cdpi%7B120%7D%20%5Clarge%20%5Cprod%5Climits%20%5Cleft%28g%28x%29h%28x%29%5Cright%29%5E%7B%5Cmathrm%7Bd%7Dx%7D%3D%5Cleft%28%5Cprod%5Climits%20g%28x%29%5E%7B%5Cmathrm%7Bd%7Dx%7D%5Cright%29%5Cleft%28%5Cprod%5Climits%20h%28x%29%5E%7B%5Cmathrm%7Bd%7Dx%7D%5Cright%29)
+![mathematical expression](doc/img/23a06af72f899f8612cb2774807ab776.svg)
 
-One might think about to invert this operator, which is actually quite easy. We denote the resulting expression as ![mathematicla expression](http://latex.codecogs.com/png.download?%5Cinline%20%5Cdpi%7B120%7D%20%5Clarge%20f%5E%7B%2A%7D%28x%29):
+One might think about to invert this operator, which is actually quite easy. We denote the resulting expression as ![mathematical expression](doc/img/372b13f27289207d40f1fac233eb205a.svg):
 
-![mathematicla expression](http://latex.codecogs.com/png.download?%5Cinline%20%5Cdpi%7B120%7D%20%5Clarge%20f%5E%7B%2A%7D%28x%29%3D%5Cexp%5Cleft%28%5Cfrac%7Bf%27%28x%29%7D%7Bf%28x%29%7D%5Cright%29)
+![mathematical expression](doc/img/e967e4493d54d1e95c0168f54099bec4.svg)
 
 This operator is also multiplicative and has another interesting property: It removes any constants from the input function:
 
-![mathematicla expression](http://latex.codecogs.com/png.download?%5Cinline%20%5Cdpi%7B120%7D%20%5Clarge%20f%28x%29%3Dg%28x%29h%28x%29%5CRightarrow%20f%5E%7B%2A%7D%28x%29%3Dg%5E%7B%2A%7D%28x%29h%5E%7B%2A%7D%28x%29)
+![mathematical expression](doc/img/01381ac9312352f2700cd1467d14cd6b.svg)
 
-![mathematicla expression](http://latex.codecogs.com/png.download?%5Cinline%20%5Cdpi%7B120%7D%20%5Clarge%20f%28x%29%3Dc%20g%28x%29%2C%20c%5Cneq%200%20%5CRightarrow%20f%5E%7B%2A%7D%28x%29%3Dg%5E%7B%2A%7D%28x%29)
+![mathematical expression](doc/img/2760bc166732e71b4716c97e0ce25447.svg)
 
 As it can be seen easily, this operator cannot handle functions with zeros: The operator is undefined for any position which results in a zero value. As it can be done for
 the "normal" derivative, we can derive the chain-rule and many other simple derivative rules for this operator. One might find the following derivative rules:
 
-![mathematicla expression](http://latex.codecogs.com/png.download?%5Cinline%20%5Cdpi%7B120%7D%20%5Clarge%20f%28x%29%3Dc%5E%7Bg%28x%29%7D%2C%20c%3E0%20%5CRightarrow%20f%5E%7B%2A%7D%28x%29%3Dc%5E%7Bf%27%28x%29%7D)
+![mathematical expression](doc/img/388d62ce0d545ac16062a523a8ae2643.svg)
 
 TODO: rules
 
