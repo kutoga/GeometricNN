@@ -124,3 +124,39 @@ class LinearLayer(Layer):
         self.__weights = update_rule.update(self.__weights, self.__state['derivative_w'])
         if self.__bias is not None:
             self.__bias = update_rule.update(self.__bias, self.__state['derivative_b'])
+
+
+class MultiplicativeLayer(Layer):
+    def __init__(self, n_inputs: int, n_outputs: int, bias=True,
+                 weights_generator: WeightsGenerator=generate_exp_weight,
+                 bias_generator: WeightsGenerator=generate_exp_weight) -> None:
+        self.__n_inputs = n_inputs
+        self.__n_outputs = n_outputs
+        self.__weights = weights_generator([self.__n_inputs, self.__n_outputs])
+        assert self.__weights.shape == (self.__n_outputs, self.__n_inputs)
+        assert np.sum(self.__weights <= 0.) == 0
+        self.__bias = bias_generator([self.__n_outputs]) if bias else None
+        if self.__bias is not None:
+            assert self.__bias.shape == (self.__n_outputs,)
+            assert np.sum(self.__bias <= 0.) == 0
+        self.__state = {}
+
+    @property
+    def weights(self) -> np.ndarray:
+        return self.__weights
+
+    @property
+    def bias(self) -> Optional[np.ndarray]:
+        return self.__bias
+
+    def forward(self, x: np.ndarray) -> np.ndarray:
+        raise NotImplementedError
+
+    def backward(self, prev: np.ndarray, derivative_rule: DerivativeRule) -> np.ndarray:
+        raise NotImplementedError
+
+    def update_weights(self, update_rule: UpdateRule):
+        raise NotImplementedError
+
+    def update_weights(self, update_rule: UpdateRule):
+        raise NotImplementedError
