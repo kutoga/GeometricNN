@@ -156,11 +156,28 @@ class MultiplicativeLayer(Layer):
         if self.__bias is not None:
             y = [y_i * self.__bias for y_i in y]
         y_arr = np.array(y)
+        self.__state['x'] = x
         self.__state['y'] = y_arr
         return y_arr
 
     def backward(self, prev: np.ndarray, derivative_rule: DerivativeRule) -> np.ndarray:
-        raise NotImplementedError
+        if derivative_rule is not DerivativeRule.ux_rule():
+            raise ValueError('The multiplicative layer currently only supports uyux rule.')
+
+        dx = self.__state['y'] * np.log(prev)
+
+        derivative_x = np.ones_like(self.__state['x'])
+        for w in self.__weights:
+            derivative_x *= w
+        derivative_x = np.power(derivative_x, dx)
+        self.__state['derivative_x'] = derivative_x[0]
+
+        # tricky
+        #self.__state['derivative_x'] = np.dot(prev, self.__weights)
+        #self.__state['derivative_w'] = np.dot(np.expand_dims(prev, -1), np.expand_dims(self.__state['x'], 0))[:, 0, :]
+        #self.__state['derivative_b'] = prev
+
+        return self.__state['derivative_x']
 
     def update_weights(self, update_rule: UpdateRule):
         raise NotImplementedError

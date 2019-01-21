@@ -29,9 +29,11 @@ def test_non_positive_weights_should_not_be_allowed(weights: np.ndarray, bias: n
                             bias=bias is not None, bias_generator=lambda _: bias)
 
 @pytest.mark.parametrize('bias', [
-    np.array([1.]), np.array([-4.]), np.array([0.]), None
+    np.array([1.]), np.array([3.]), None
 ])
 @pytest.mark.parametrize('weights, input, previous, expected_output', [
+    (np.array([[1., 2., 3.]]), np.array([1., 2., 1.]), np.array([1.]), np.array([1., 1., 1.])),
+    (np.array([[1., 2., 3.]]), np.array([1., 2., 1.]), np.array([np.exp(1.)]), np.array([1., 2.**12., 3.**12.])),
     #(np.array([[1., -1., 2.]]), np.array([2., -1., 3.]), np.array([1.]), np.array([1., -1., 2.])),
     #(np.array([[0., -3., 22.]]), np.array([12., -1111., -13.]), np.array([-1.]), np.array([0., 3., -22.])),
 ])
