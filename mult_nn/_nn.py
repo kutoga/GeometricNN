@@ -150,7 +150,14 @@ class MultiplicativeLayer(Layer):
         return self.__bias
 
     def forward(self, x: np.ndarray) -> np.ndarray:
-        raise NotImplementedError
+        if len(x.shape) == 1:
+            x = [x]
+        y = [[np.prod(w ** x_i) for w in self.__weights] for x_i in x]
+        if self.__bias is not None:
+            y = [y_i * self.__bias for y_i in y]
+        y_arr = np.array(y)
+        self.__state['y'] = y_arr
+        return y_arr
 
     def backward(self, prev: np.ndarray, derivative_rule: DerivativeRule) -> np.ndarray:
         raise NotImplementedError
