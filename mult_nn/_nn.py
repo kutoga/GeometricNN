@@ -167,9 +167,8 @@ class MultiplicativeLayer(Layer):
         dx = self.__state['y'] * np.log(prev)
 
         derivative_x = np.ones_like(self.__state['x'])
-        for w in self.__weights:
-            derivative_x *= w
-        derivative_x = np.power(derivative_x, dx)
+        for i, w in enumerate(self.__weights):
+            derivative_x *= np.power(w, dx[0][i])
         self.__state['derivative_x'] = derivative_x[0]
 
         # tricky
