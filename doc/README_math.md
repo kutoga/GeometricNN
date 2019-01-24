@@ -1,5 +1,8 @@
 
 # Geometric Neural Networks  
+
+IMPORTANT: This project is not yet finished!
+
   
 Classical neural networks are based on [classical calculus](https://en.wikipedia.org/wiki/Calculus) of Newton and Leibniz. One might ask if there are useful alternatives?  
   
