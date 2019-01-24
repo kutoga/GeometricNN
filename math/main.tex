@@ -1,0 +1,192 @@
+\documentclass{article}
+\usepackage[utf8]{inputenc}
+\usepackage{amsmath}
+\usepackage{stix}
+
+\title{Math}
+\author{benjamin.meier70 }
+\date{December 2018}
+
+\begin{document}
+
+\maketitle
+
+Let us define a continuous product:
+\begin{align}
+    \intcup\limits_a^b f(x) \mathrm{d}x = \exp\left(\int\limits_a^b \log\left(f(x)\right) \mathrm{d}x\right)
+\end{align}
+
+One might derive some rules:
+\begin{align}
+    \intcup\limits_a^b f(x) \mathrm{d}x \intcup\limits_a^b g(x) \mathrm{d}x = \intcup\limits_a^b f(x)g(x) \mathrm{d}x \\
+\end{align}
+\begin{align}
+    \intcup x^a \mathrm{d}x = x^{ax}\exp(c-ax)
+\end{align}
+\begin{align}
+    \intcup\limits_a^b f(x)\mathrm{d}x\intcup\limits_b^c f(x)\mathrm{d}x=\intcup\limits_a^c f(x)\mathrm{d}x
+\end{align}
+
+Define some other useful functions:
+\begin{align}
+    \alpha(k)=\frac{\exp(-k^2)}{\sqrt{\pi}}
+\end{align}
+
+Playground:
+\begin{align}
+    \intcup\limits_{-\infty}^\infty x^{\alpha(k)} \mathrm{d}k=x
+\end{align}
+\begin{align}
+    \intcup \exp(x) \mathrm{d}x=\exp\left(\frac{x^2}{2}+c\right)
+\end{align}
+\begin{align}
+    \intcup f(x) \mathrm{d}x& = f(x) = \mathtt{?} \\
+    \exp\left( \int \log(x) \mathrm{d}x\right) &= f(x) \\
+    \int \log(f(x))\mathrm{d}x &= \log(f(x)) \\
+    \Rightarrow \log(f(x)) &= \exp(x)
+    \Rightarrow f(x) = \exp(\exp(x)) \\
+    \Rightarrow \\
+    \intcup \exp(\exp(x)) \mathrm{d}x &= \exp(\exp(x))\exp(c) 
+\end{align}
+Define an alias:
+\begin{align}
+    \mathrm{E}(x)=\exp(\exp(x))
+\end{align}
+Then we can write:
+\begin{align}
+    \intcup \mathrm{E}(x) \mathrm{d}x = \mathrm{E}(x)\exp(c)
+\end{align}
+I don't like this $\exp(c)$. Let us define $\exp(c)=\mu$ as a non-zero constant. Then we can simplify the previous expression to
+\begin{align}
+    \intcup \mathrm{E}(x) \mathrm{d}x = \mathrm{E}(x)\mu
+\end{align}
+
+If we can create a product integral, can we also create the inverse: A product differentiation? It can easily defined / derived as
+
+\begin{align}
+    \frac{\mathrm{\cup}}{\mathrm{\cup}x}f(x)&=\exp\left(\frac{\mathrm{d}}{\mathrm{d}x}\log(f(x))\right)\\
+    &=\exp\left(\frac{f'(x)}{f(x)}\right)\\
+    &=\sqrt[f(x)]{\exp(f'(x))}
+\end{align}
+
+Introduce this syntax:
+\begin{align}
+    \frac{\mathrm{\cup}^n}{\mathrm{\cup}x^n}f(x)=f^{\cup n}(x)
+\end{align}
+
+The interpretation still might be a bit tricky (I cannot find an intuitive one)
+
+What do we get, if the "neutral element"-function (=$f(x)=1$) is repeatedly integrated:
+
+\begin{align}
+    I_0 &= 1\\
+    I_1 &= \intcup I_0 \mathrm{d}x= \mu_1 = I_0\mu_1 \\
+    I_2 &= \intcup I_1 \mathrm{d}x = \mu_1^x\mu_2 = I_1^x\mu_2\\
+    I_3 &= \intcup I_2 \mathrm{d}x = \exp\left(\frac{x^2}{2}\log(\mu_1)+x\log(\mu_2)\right)\mu_3\\
+    &= \mu_1^{\frac{x^2}{2}}\mu_2^x\mu_3
+\end{align}
+
+We finally see, that for every polynomial $p(x)$, we can write:
+\begin{align}
+    \intcup c^{p(x)} \mathrm{d}x = c^{\int p(x) \mathrm{d}x}
+\end{align}
+
+Does this also work for other functions, e.g. in general for $f(x)$? Yes, given any function $f(x)$ and a non-zero $c$, we can write:
+
+\begin{align}
+   \intcup c^{f(x)} \mathrm{d}x = c^{\int f(x) \mathrm{d}x}
+\end{align}
+
+It might be assumed this works also in the other way around:
+\begin{align}
+    \frac{\mathrm{\cup}}{\mathrm{\cup}x}
+\end{align}
+
+TODO: Create something like a taylor series for products (given this fancy new operator); apply it to something simple or exponentiated polynomias (e.g. $\exp(1+x+x^3-2x^4)$)
+
+Taylor-things:
+\begin{align}
+    f(x)=\prod\limits_{k=0}^\infty \left(f^{\cup k}(x_0)\right)^{\left(\frac{(x-x_0)^k}{k!}\right)}
+\end{align}
+
+Start with $\exp(x)$ and $x_0=0$:.
+\begin{align}
+    \exp(x)&=1*e^x*1*1...
+\end{align}
+
+Then, try $E(x)$:
+\begin{align}
+    E(x)=e^{1}*e^{x}*e^{\frac{x^2}{2}}*...=E(x)
+\end{align}
+
+Next one is $sin(x)$ (i guess, this does not work, because it is $0$ at $x=0$) with $x_0=0$:
+\begin{align}
+    \sin(x)=0*...
+\end{align}
+
+It seems that it is trivial to compute the coefficients. I guess that:
+\begin{align}
+    \log(f^{\cup n}(x)) = \frac{\mathrm{d}^n}{\mathrm{d}x^n}\log(f(x))
+\end{align}
+
+Check this: For $n=0$ it is obviously true. So, move on to $n=1$. It's also true. Finally, check $n=2$. It's also true. Cool. Now we can rewrite the product:
+\begin{align}
+    f(x)&=\prod\limits_{k=0}^\infty \exp\left(\frac{\mathrm{d}^k}{\mathrm{d}x^k}_{x=x_0}\log(f(x))\right)^{\frac{(x-x_0)^k}{k!}}\\
+    &=\prod\limits_{k=0}^\infty\exp\left(\frac{(x-x_0)^k}{k!}\frac{\mathrm{d}^k}{\mathrm{d}x^k}_{x=x_0}\log(f(x))\right)
+\end{align}
+
+Taking the logarithm produces a taylor-series. This series tells us everything about the convergence etc. We learned all this things in school. Thats actually boring.
+
+Update: all these things already exist and are called "multiplicative integral" and "multiplicative derivative". it still was fun:)
+
+Sin-playground:
+\begin{align}
+    \sin(x\pi)&=x\pi\prod\limits_{n=1}^\infty\left(1-\frac{x^2}{n^2}\right) \\
+    &=x\pi\prod\limits_{n=1}^\infty\intcup\limits_{-\infty}^{\infty}\left(1-\frac{x^2}{n^2}\right)^{\alpha(k)}\mathrm{d}k\\
+    &=\intcup\limits_{-\infty}^{\infty}x\pi\prod\limits_{n=1}^\infty\left(1-\frac{x^2}{n^2}\right)^{\alpha(k)}\mathrm{d}k
+\end{align}
+
+Und weiter gehts. Mann kann ja noch mehr herausfinden. Die Ableitung scheint z.B. auch multiplikativ zu sein:
+
+\begin{align}
+    \frac{\cup}{\cup x}\left(f(x)g(x)\right) = \frac{\cup}{\cup x}f(x) \frac{\cup}{\cup x}g(x)
+\end{align}
+
+Ableiten ist im Allgemeinen einfacher, also kann man sich ja auch fragen, ob eine Kettenregel existiert?
+
+\begin{align}
+    \frac{\cup}{\cup x} f(g(x)) &= \exp\left(\frac{f'(g(x))g'(x)}{f(g(x))}\right) \\
+    &= \left(f^{\cup}(g(x))\right)^{g'(x)}
+\end{align}
+
+Der Ausdruck ist überraschend hässlich. Eventuell kann er aber noch verschönert werden. Vor allem die "normale" Ableitung im Exponenten stört mich. Alternativen:
+
+\begin{align}
+    \frac{\cup}{\cup x} f(g(x)) &= \left(f^{\cup}(g(x))\right)^{g(x)\log(g^\cup(x))}
+\end{align}
+
+Bedingt befriedigend, aber handhabbar.
+
+Jetzt kommt die eigentliche grosse Frage: Kann man mit multiplikativen Ableitungen ein neuronales Netz erzeugen? fragen, die zu klären sind: Wie minimiert man eine Funktion mit multiplikativen Ableitungen? kann man die besthende Formeln einfach übernehmen (bzw. was bedeutet diese dann?; bzw. man muss noch + durch * ersetzen usw). Wie macht man einen Forward und Backward Pass?
+
+Funktion minimieren: Die triviale Annahme ist, dass man einfach $\theta_{i+1}\leftarrow \frac{\theta_i}{f^\cup(\theta_i)}$ iterativ ausführt.
+
+Probieren wir das man mit der Funktion $f(x)=2^{x^2+x+1}$. Dies ist hier trivialerweise äquivalent mit der Minimierung von $x^2+x+1$. Setzen wir $x_0=2$. Und los geht der Spass:
+
+\begin{align}
+    f^\cup(x)=2^{2x+1}
+\end{align}
+
+\begin{align}
+    x_0 &= 2 \\
+    x_1 &= \frac{x_0}{2^{2x_0+1}} = x_0 2^{-2x_0-1} = 2 * 2^{-5} = 2^{-4} \\
+    &= 0.0625 \\
+    x_2 = 0.0625 * 2^{-0.125-1} = 0.02865 \\
+    x_3 = 0.02865 * 2^{-0.02865-1} = 0.01404 
+\end{align}
+
+Das scheint einfach zu schrumpfen. Wo liegt denn eigentlich das richtige Minimum? Kurz prüfen... Es ist bei $x=-\frac{1}{2}$. Das könnte natürlich ein Problem sein, da dieses Minimierungsverfahren nur mit positiven Werten umgehen kann. Bzw. wenn der Startwert positiv ist, ist auch der Endwert immer positiv und das gleiche gilt auch mit negativen Werten.
+
+Der nächste Versuch wäre also mit $f(x)=2^{(x-2)^2}$. Das konvergiert dann hoffentlich. Eine Visulisierung von dem ganzen Spass wäre natürlich auch wünschenswert.
+
+\end{document}
