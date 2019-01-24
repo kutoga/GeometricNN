@@ -103,7 +103,7 @@ will have a larger absolute value with a larger $x$ and if it it $<1$, then the 
 The multiplicative gradient descent therefore divides by the multiplicative gradient. Unfortunately, the multiplicative gradient is independent of the absolute position of $x$
 and for large $x$ this division can create very large steps. For this reason, the proposed corrected multiplicative derivative is:
 
-$x_{i+1} = x_{i} {\left(f^{*}(x_{i})\right)^{\frac{-1}{x}}$
+$x_{i+1} = x_{i} {\left(f^{*}(x_{i})\right)}^{\frac{-1}{x}}$
 
 ## What do you try to show?
 

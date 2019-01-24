@@ -103,7 +103,7 @@ will have a larger absolute value with a larger ![mathematical expression](doc/i
 The multiplicative gradient descent therefore divides by the multiplicative gradient. Unfortunately, the multiplicative gradient is independent of the absolute position of ![mathematical expression](doc/img/c310b14542d868fdb5f9652a389cf000.svg)
 and for large ![mathematical expression](doc/img/c310b14542d868fdb5f9652a389cf000.svg) this division can create very large steps. For this reason, the proposed corrected multiplicative derivative is:
 
-![mathematical expression](doc/img/79b57ecb7e2c43db66e5591ee4d45dad.svg)
+![mathematical expression](doc/img/b2b18fe56856d80ca745bd3d2eef2256.svg)
 
 ## What do you try to show?
 
