@@ -45,7 +45,7 @@ One might think about to invert this operator, which is actually quite easy. We 
   
 $f^{*}(x)=\exp\left(\frac{f'(x)}{f(x)}\right)$  
   
-This operator is also multiplicative and has another interesting property: It removes any constants from the input function:  
+This operator is also multiplicative and has another interesting property: It removes any constants from the input function:
   
 $f(x)=g(x)h(x)\Rightarrow f^{*}(x)=g^{*}(x)h^{*}(x)$  
   
@@ -76,3 +76,34 @@ $f(x_0, x_1, x_2)=h(g(x))$
 
 How can we compute the gradient of the function $f$ at a fixed position, given we evaluate the function at this position (forward pass in a neural network)? Of course, we can use the classical chain rule:
 -->
+
+The "classical" gradient descent is defined as:
+
+$x_{i+1} = x_{i} - \frac{\mathrm{d}f}{\mathrm{d}x}(x_{i})$
+
+Which can be written as:
+
+$x_{i+1} = x_{i} - f'(x_i)$
+
+Of course, given a neural network, $x$ is usually $\theta$ and describes weights.
+
+Very similar, we can define a multiplicative gradient descent:
+
+$x_{i+1} = x_{i} \left(f^{*}(x_{i})\right)^{-1}$
+
+One might ask, what this "optimization" method does? Or even more basic: What is the geometric meaning of this multiplicative derivative? For the classical derivative,
+we all know that it is the tangent of the function at a given point. It shows in which direction the function increases (a positive derivative means the function grows
+with a higher $x$ value and $-$ means the function decreases). The multiplicative derivative on the other side, shows in which direction the absolute value of the function
+increases: This means it show the direction away from $0$. This is not given by the absolute value, but by a factor: If the multiplicative derivative is $>1$, then the function
+will have a larger absolute value with a larger $x$ and if it it $<1$, then the function will have a smaller absolute value with a larger $x$.
+
+The multiplicative gradient descent therefore divides by the multiplicative gradient. Unfortunately, the multiplicative gradient is independent of the absolute position of $x$
+and for large $x$ this division can create very large steps. For this reason, the proposed corrected multiplicative derivative is:
+
+$x_{i+1} = x_{i} {\left(f^{*}(x_{i})\right)^{\frac{-1}{x}}$
+
+## What do you try to show?
+
+I want to show that the multiplicative derivative can be useful to optimize neural networks. Especially multiplicative neural networks. I want to show this with a minimal library
+that implements simple neural networks and which can be seen as a proof-of-concept that this (maybe?) new method works. Or that it does not work.
+
