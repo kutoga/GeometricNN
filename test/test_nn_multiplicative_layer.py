@@ -45,10 +45,10 @@ def test_multiplicative_activation_backprop_with_single_output(weights: np.ndarr
 
 
 @pytest.mark.parametrize('weights, bias, input, previous, expected_output', [
-    (np.array([[2., 3., -1.], [0., -0.5, 1.]]), np.array([1., 2.]), np.array([1., 2., -1.]),
-     np.array([1., 1.]), np.array([2., 2.5, 0.])),
-    (np.array([[2., 3., -1.], [0., -0.5, 1.]]), np.array([1., 2.]), np.array([1., 2., -1.]),
-     np.array([1., 2.]), np.array([2., 2., 1.]))
+    (np.array([[2., 3., 1.], [1, 1, 1.]]), np.array([1., 2.]), np.array([1., 2., 1.]),
+     np.array([1., 1.]), np.array([1., 1, 1.])),
+    (np.array([[2., 3., 1.], [2., 1, 1.]]), np.array([1., 2.]), np.array([1., 2., 1.]),
+     np.array([1., 2.]), np.array([16 ** np.log(2), 1., 1.]))
 ])
 def test_multiplicative_activation_backprop_with_multiple_outputs(weights: np.ndarray, bias: np.ndarray, input: np.ndarray,
                                                           previous: np.ndarray, expected_output: np.ndarray) -> None:
