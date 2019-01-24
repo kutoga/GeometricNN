@@ -1,5 +1,8 @@
 
 # Geometric Neural Networks  
+
+IMPORTANT: This project is not yet finished!
+
   
 Classical neural networks are based on [classical calculus](https://en.wikipedia.org/wiki/Calculus) of Newton and Leibniz. One might ask if there are useful alternatives?  
   
@@ -45,7 +48,7 @@ One might think about to invert this operator, which is actually quite easy. We 
   
 ![mathematical expression](doc/img/e967e4493d54d1e95c0168f54099bec4.svg)  
   
-This operator is also multiplicative and has another interesting property: It removes any constants from the input function:  
+This operator is also multiplicative and has another interesting property: It removes any constants from the input function:
   
 ![mathematical expression](doc/img/01381ac9312352f2700cd1467d14cd6b.svg)  
   
@@ -76,3 +79,34 @@ How can this improve the computation of the classical gradient? This is actually
 
 How can we compute the gradient of the function ![mathematical expression](doc/img/6e6638d593d032139132402aec60e526.svg) at a fixed position, given we evaluate the function at this position (forward pass in a neural network)? Of course, we can use the classical chain rule:
 -->
+
+The "classical" gradient descent is defined as:
+
+![mathematical expression](doc/img/bfacbc7bb4b1f2284574285d58fc1bff.svg)
+
+Which can be written as:
+
+![mathematical expression](doc/img/ebe7f01c81de5946dfe7a263be0fbdeb.svg)
+
+Of course, given a neural network, ![mathematical expression](doc/img/c310b14542d868fdb5f9652a389cf000.svg) is usually ![mathematical expression](doc/img/2ec6968afb38f142a5252dd886a0a27a.svg) and describes weights.
+
+Very similar, we can define a multiplicative gradient descent:
+
+![mathematical expression](doc/img/242da9d3097369b580a5b042ecde14a4.svg)
+
+One might ask, what this "optimization" method does? Or even more basic: What is the geometric meaning of this multiplicative derivative? For the classical derivative,
+we all know that it is the tangent of the function at a given point. It shows in which direction the function increases (a positive derivative means the function grows
+with a higher ![mathematical expression](doc/img/c310b14542d868fdb5f9652a389cf000.svg) value and ![mathematical expression](doc/img/3d8e1f922d8c67053e34fe9b3de59ada.svg) means the function decreases). The multiplicative derivative on the other side, shows in which direction the absolute value of the function
+increases: This means it show the direction away from ![mathematical expression](doc/img/7770202207bf90dfebebe54e52bf326a.svg). This is not given by the absolute value, but by a factor: If the multiplicative derivative is ![mathematical expression](doc/img/782bcbc35b39fd0e8164a3789751b96b.svg), then the function
+will have a larger absolute value with a larger ![mathematical expression](doc/img/c310b14542d868fdb5f9652a389cf000.svg) and if it it ![mathematical expression](doc/img/e9496f293beae580549cda815aac75d3.svg), then the function will have a smaller absolute value with a larger ![mathematical expression](doc/img/c310b14542d868fdb5f9652a389cf000.svg).
+
+The multiplicative gradient descent therefore divides by the multiplicative gradient. Unfortunately, the multiplicative gradient is independent of the absolute position of ![mathematical expression](doc/img/c310b14542d868fdb5f9652a389cf000.svg)
+and for large ![mathematical expression](doc/img/c310b14542d868fdb5f9652a389cf000.svg) this division can create very large steps. For this reason, the proposed corrected multiplicative derivative is:
+
+![mathematical expression](doc/img/79b57ecb7e2c43db66e5591ee4d45dad.svg)
+
+## What do you try to show?
+
+I want to show that the multiplicative derivative can be useful to optimize neural networks. Especially multiplicative neural networks. I want to show this with a minimal library
+that implements simple neural networks and which can be seen as a proof-of-concept that this (maybe?) new method works. Or that it does not work.
+
